@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; "/>
+	<title>Mon compte</title>	
+	<link rel="stylesheet" type="text/css" href="style/global.css" />
+
+    <script>
+        function validate(){
+        var login = document.forms["form"]["login"];
+        var pwd = document.forms["form"]["pwd"];
+        
+        if(login.value =="")
+        {
+        alert ("Vous avez oublie de saisir le champ login!"); 
+        
+        login.focus();
+        console.log("error login:"+ login.value);
+        
+        return false;
+        
+        }
+        else if(pwd.value =="")
+        {
+        alert ("Vous avez oublie de saisir le champ password!"); 
+        pwd.focus();
+        console.log("error pwd:"+ pwd.value);
+        return false;
+        
+        }
+        else if(pwd.value.length<6)
+        {
+        alert ("Votre mot de passe doit etre superieur à 6 caracteres!"); 
+        
+        pwd.focus();
+        pwd.value="";
+        console.log("length pwd:"+ pwd.value.length);
+        return false;
+        
+        }
+        else if(login.value.length<6)
+        {
+        alert ("Votre login doit etre superieur à 6 caracteres!"); 
+        
+        login.focus();
+        login.value="";
+        console.log("length pwd:"+ pwd.value.length);
+        return false;
+        
+        }
+        else if(login.value==pwd.value)
+        {
+        alert ("Votre login et votre mot de passe ne doivent pas ête identiques!"); 
+        login.value="";
+        pwd.value="";
+        login.focus();
+        console.log("length pwd:"+ pwd.value.length);
+        return false;
+        
+        }
+        
+        else 
+        return true;
+        
+        }
+        </script>
+</head>
+
+<body>
+	<!--Espace r�serv� � l'ent�te -->
+<div class="banniere">
+ <img src="images/banniere.png" alt="MON SITE DE PHOTOS" title="Bienvenue sur le site de Vannes" width="1030" height="100" />
+</div>
+	<!-- Espace r�serv� au menu -->
+<div id="top_menu">
+  <ul>
+    <li><a href="index.html" title="Bienvenue" >Accueil</a></li>
+    <li><a href="album.html" title="PHOTOS" >Photos</a></li>
+    <li><a href="telechargement.html" title="Telechargement" >Telechargements</a></li>
+	<li><a href="videos.html" title="Videos">Videos</a></li>
+    <li id="actif"><a href="compte.html" title="Mon compte">Mon compte</a></li>
+	<li><a href="carte_ciel.html" title="Carte du Ciel">Carte du Ciel</a></li>
+    <li><a href="formulaire.html" title="Pour me joindre" >Contact</a></li>
+    <li><a href="plan.html" title="plan du site" >Plan du site</a></li>
+  </ul>
+</div>
+
+<br/>
+
+<p class="texte-rouge"><br/>Veuillez saisir vote login et votre mot de passe:<p>
+	
+	<div class="global">
+	
+	<table class="compte">
+	<tr>
+	<td>
+		<form action="auth.php" name="form" method="GET" enctype="text/plain"onsubmit="return validate()">
+			<label for id="nom">login         :</label></td><td> <input type="text" name="login" />
+	</td>
+</tr><tr>	<td>
+			<label for id="pass">mot de passe : </label></td><td><input type="password" name="pwd"  />
+			</td>
+			</tr>
+			<tr><td class="sous-titre"></td><td></td></tr>
+			<tr>
+			
+			<td ></td><td>
+			<input type="reset" name="reset" value="Effacer" />
+			<input type="submit" name="submit" value="Valider" /></td>
+			</tr>
+		</form>
+		</table>
+    </div>
+
+<div id="pied_de_page">
+	<div id='gauche'>
+		<a href="http://validator.w3.org/check?uri=referer">
+		<img src="http://www.w3.org/Icons/valid-xhtml10-blue" alt="Valid XHTML 1.0 Transitional" height="31" width="88" />
+		</a>
+		</div>
+Copyright Technologies Web - 2021 
+<br/>
+Vannes 56000
+</div>
+
+	
+</body>
+
+
+</html>
